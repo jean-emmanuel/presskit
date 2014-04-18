@@ -1,0 +1,6 @@
+body{background-image:url([(#LOGO_RUBRIQUE|extraire_attribut{src})]);text-transform:none;}
+#header{background:rgba(0,0,0,0.8)}
+.item{border-right:1px solid rgba(255,255,255,0.7)!important;border-bottom:1px solid rgba(255,255,255,0.7)!important;background:rgba(0,0,0,0.8);}
+.poptrox-popup {box-shadow: 0px 0px 0px 8px rgba(255,255,255,0.8), 0px 10px 60px 10px rgba(8, 11, 19, 0.55);}
+#reel{border-top:4px solid rgba(255,255,255,0.8)!important;border-bottom:4px solid rgba(255,255,255,0.8)!important}
+#reel{margin:0px!important;}

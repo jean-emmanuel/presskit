@@ -1,0 +1,105 @@
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique=#ENV{id_rubrique}}>
+<!DOCTYPE HTML>
+<!--
+
+  Parallelism 1.1 by HTML5 UP
+  html5up.net | @n33co
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  
+  Ported to Spip for ammd.net (Jean-Emmanuel Doucet)
+
+-->
+<html>
+  <head>
+    <title>[(#TITRE|textebrut)]</title>
+    <meta name="viewport" content="width=1120,user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400" rel="stylesheet" type="text/css" />
+    <!--[if lte IE 8]><script src="#CHEMIN{js/html5shiv.js}"></script>-->
+    <script src="#CHEMIN{js/jquery.min.js}"></script>
+    <script src="#CHEMIN{js/jquery.poptrox.js}"></script>
+    <script src="#CHEMIN{js/config.js}"></script>
+    <script src="#CHEMIN{js/skel.min.js}"></script>
+    <script src="#CHEMIN{js/custom.js}"></script>
+    <noscript>
+      <link rel="stylesheet" href="#CHEMIN{css/skel-noscript.css}" />
+      <link rel="stylesheet" href="#CHEMIN{css/style.css}" />
+      <link rel="stylesheet" href="#CHEMIN{css/style-desktop.css}" />
+      <link rel="stylesheet" href="#CHEMIN{css/style-noscript.css}" />
+    </noscript>
+    <!--[if lte IE 8]><link rel="stylesheet" href="#CHEMIN{css/ie8.css}" /><![endif]-->
+    <link rel="stylesheet" href="#CHEMIN{css/custom.css}" />[
+    <style>body{background-image:url((#LOGO_RUBRIQUE|image_reduire{1920}|extraire_attribut{src}))}</style>]
+  </head>
+  <body>
+
+    <div id="wrapper">
+    
+      <div id="main">
+        <div id="reel">
+        <!-- ******************************************************************************************** -->
+        <!-- ******************************************************************************************** -->
+        
+          
+          <!-- Header Item -->
+          
+            <div id="header" class="item" data-width="400">
+              <h1>[(#TITRE|textebrut)]</h1>
+              #TEXTE
+            </div>
+
+          <!-- Thumb Items -->
+          
+          
+<BOUCLE_documents(DOCUMENTS){extension==odt|pdf}>
+          <article class="item thumb" data-width="320">
+            <h2>[(#TITRE|textebrut|sinon{#FICHIER|basename})]</h2>
+            <a href="#URL_SITE_SPIP/#SKEL/Viewer.js/#[(#URL_DOCUMENT|url_absolue)]" data-poptrox="iframe,1000x640"><img src="[(#LOGO_DOCUMENT|image_reduire{0,224}|image_recadre{400,260,'center','transparent'}|extraire_attribut{src})]" alt=""></a>
+          </article>
+</BOUCLE_documents>
+          
+<BOUCLE_vimeo(DOCUMENTS){extension==html}>
+          #SET{json, http://vimeo.com/api/v2/video/#URL_DOCUMENT|explode{/}|end|concat{.json}}
+          <BOUCLE_vimeo_data(DATA){source json, #GET{json}}>#SET{src,#VALEUR{thumbnail_large}|sinon{#VALEUR{thumbnail_medium}}}</BOUCLE_vimeo_data>
+          [(#URL_DOCUMENT|vimeocheck|oui)
+          <article class="item thumb" data-width="320">
+            <h2>[(#TITRE|textebrut)]</h2>
+            <a href="#URL_DOCUMENT" data-poptrox="vimeo,1000x640"><img src="#GET{src}" alt=""></a>
+          </article>]
+</BOUCLE_vimeo>    
+          
+<BOUCLE_images(DOCUMENTS){mode=image}>
+          <article class="item thumb" data-width="[(#FICHIER|image_reduire{0,224}|extraire_attribut{width})]">
+            [<h2>(#TITRE|textebrut)</h2>]
+            <a href="#URL_DOCUMENT"><img src="[(#FICHIER|image_reduire{0,224}|extraire_attribut{src})]" alt=""></a>
+          </article>
+</BOUCLE_images>
+          
+          
+        <!-- ******************************************************************************************** -->
+        <!-- ******************************************************************************************** -->
+        </div>
+      </div>
+    
+      <div id="footer">
+        <div class="left">
+          <p>[(#DESCRIPTIF|textebrut)]&nbsp;</p>
+        </div>
+        <div class="right">
+          <ul class="contact">
+            [(#AUTORISER{webmestre}|oui)<li><a href="[(#URL_PAGE{zip}|parametre_url{id_rubrique,#ID_RUBRIQUE}|parametre_url{mode,refresh})]" target="_blank" class="fa fa-refresh solo"><span>Recalculer le dossier de presse</span></a></li>]
+            <li><a href="[(#URL_PAGE{zip}|parametre_url{id_rubrique,#ID_RUBRIQUE})]" class="fa fa-download solo"><span>Télecharger le dossier de presse</span></a></li>
+            <BOUCLE_liens(SITES){par num nom_site, nom_site}>
+            <li><a href="#URL_SITE" class="fa fa-[(#DESCRIPTIF|textebrut|sinon{globe})] solo"><span>[(#NOM_SITE|textebrut)]</span></a></li>
+            </BOUCLE_liens>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+</html>
+</BOUCLE_rubrique>
