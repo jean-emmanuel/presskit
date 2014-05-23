@@ -400,7 +400,7 @@
 						if (!ignoreLock && isLocked)
 							return true;
 						
-						isLocked = true;
+						isLocked = false;
 
 						// Cleanup from previous
 							_caption.hide();

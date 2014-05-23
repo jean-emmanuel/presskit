@@ -1,3 +1,0 @@
-$(function() {
- $('.fa').each(function(){$(this).tooltipster({theme:'tooltipster-light',content:$(this).find('span').text().replace(/ /g,' ')})});
-});

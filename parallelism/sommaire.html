@@ -1,3 +1,17 @@
-<BOUCLE_first_rubrique(RUBRIQUES){par num titre, titre}{0,1}>
-<INCLURE{fond=rubrique, env, id_rubrique=#ID_RUBRIQUE}/>
-</BOUCLE_first_rubrique>
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>#NOM_SITE_SPIP</title>
+  </head>
+<body>
+<h1>#NOM_SITE_SPIP</h1>
+<em>Copyleft <a href="http://ammd.net">AMMD</a> [(#DATE|annee)]</em>
+
+<ul>
+<BOUCLE_rub(RUBRIQUES){tout}>
+    <li><a href="#URL_RUBRIQUE">#TITRE</a></li>
+</BOUCLE_rub>
+</ul>
+
+</body>
+</html>

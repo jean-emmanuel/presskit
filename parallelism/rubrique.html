@@ -1,5 +1,4 @@
-<BOUCLE_rubrique(RUBRIQUES){id_rubrique=#ENV{id_rubrique}}>
-<!DOCTYPE HTML>
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique=#ENV{id_rubrique}}><!DOCTYPE HTML>
 <!--
 
   Parallelism 1.1 by HTML5 UP
@@ -14,8 +13,7 @@
     <title>[(#TITRE|textebrut)]</title>
     <meta name="viewport" content="width=1120,user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="description" content="[(#DESCRIPTIF|textebrut)]" />
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400" rel="stylesheet" type="text/css" />
     <!--[if lte IE 8]><script src="#CHEMIN{js/html5shiv.js}"></script>-->
     <script src="#CHEMIN{js/jquery.min.js}"></script>
@@ -73,7 +71,7 @@
 <BOUCLE_images(DOCUMENTS){mode=image}>
           <article class="item thumb" data-width="[(#FICHIER|image_reduire{0,224}|extraire_attribut{width})]">
             [<h2>(#TITRE|textebrut)</h2>]
-            <a href="#URL_DOCUMENT"><img src="[(#FICHIER|image_reduire{0,224}|extraire_attribut{src})]" alt=""></a>
+            <a href="[(#FICHIER|image_reduire{4096,0}|image_reduire{0,4096}|extraire_attribut{src})]"><img src="[(#FICHIER|image_reduire{0,224}|extraire_attribut{src})]" alt=""></a>
           </article>
 </BOUCLE_images>
           

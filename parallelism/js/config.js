@@ -484,7 +484,8 @@ $(function() { h5u_parallelism.init({
 							usePopupCaption: true,
 							usePopupCloser: false,
 							usePopupDefaultStyling: false,
-							usePopupNav: true
+							usePopupNav: true,
+							preload: true
 						});
 
 					// Trigger resize event

@@ -34,7 +34,7 @@ if (!file_exists($zippath.$zipname)) {
   ),
 	<BOUCLE_images(DOCUMENTS){extension==jpg|gif|png|jpeg}{doublons}{id_rubrique}{","}>
   array(
-	  url => "[(#FICHIER|image_reduire{4096}|extraire_attribut{src})]",
+	  url => "[(#FICHIER|image_reduire{4096,0}|image_reduire{0,4096}|extraire_attribut{src})]",
 	  name => "[(#TITRE|textebrut|sanitize|sinon{image_#COMPTEUR_BOUCLE})]_HD.#EXTENSION"
   ),array(
 	  url => "[(#FICHIER|image_reduire{640}|extraire_attribut{src})]",
@@ -54,7 +54,7 @@ if (!file_exists($zippath.$zipname)) {
 }
 
 [(#ENV{mode}|=={refresh}|non)
-
+/*
 	$size = filesize($zippath.$zipname); 
 
 	header("Pragma: public");
@@ -68,11 +68,11 @@ if (!file_exists($zippath.$zipname)) {
 	header("Accept-Ranges: bytes");
 	header("Content-Length: ".$size);
 
-
 	ob_clean();
-	flush();
+	flush();*/
 
-	readfile($zippath.$zipname);
+    header( 'Location: ' . $zippath.$zipname ) ;
+	//readfile($zippath.$zipname);
 ]
 
 [(#ENV{mode}|=={refresh}|oui)
@@ -81,7 +81,7 @@ if (!file_exists($zippath.$zipname)) {
 ]
 
 if ($check==1) {
-	echo "<hr/><br/><a href='" . $zippath.$zipname . "'>" . $zipname . "</a><br/>" ;
+	echo "<hr/><br/><a href='[(#URL_PAGE{zip}|parametre_url{id_rubrique,#ID_RUBRIQUE})]'>" . $zipname . "</a><br/>" ;
 	$checkzip = new ZipArchive(); 
 	$checkzip->open($zippath.$zipname); 
 	for( $i = 0; $i < $checkzip->numFiles; $i++ ){ 

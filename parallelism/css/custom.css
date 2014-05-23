@@ -1,9 +1,10 @@
-body{background-repeat:no-repeat;background-size:cover;text-transform:none;}
+body{background-repeat:no-repeat;background-size:cover;text-transform:none;background-color:#000;}
 #header{background:rgba(0,0,0,0.8)}
 .item{border:2px solid rgba(255,255,255,0.7)!important;background:rgba(0,0,0,0.8);background-origin:content-box}
 .poptrox-popup {box-shadow: 0px 0px 0px 8px rgba(255,255,255,0.8), 0px 10px 60px 10px rgba(8, 11, 19, 0.55);}
-
-
+#header:before {
+  display:none;
+}
 
 /*TOOLTIPSTER*/
 
@@ -71,7 +72,7 @@ body{background-repeat:no-repeat;background-size:cover;text-transform:none;}
 	height: 100%;
 	position: absolute;
 	top: 0;
-	left: 0;
+	left:-1px;
 	z-index: -1;
 }
 .tooltipster-arrow span, .tooltipster-arrow-border {
