@@ -1,4 +1,4 @@
-<BOUCLE_rubrique(RUBRIQUES){id_rubrique=#ENV{id_rubrique}}><!DOCTYPE HTML>
+<BOUCLE_rubrique(RUBRIQUES){tout}{id_rubrique=#ENV{id_rubrique}}><!DOCTYPE HTML>
 <!--
 
   Parallelism 1.1 by HTML5 UP
@@ -51,14 +51,14 @@
           <!-- Thumb Items -->
           
           
-<BOUCLE_documents(DOCUMENTS){extension==odt|pdf}>
+<BOUCLE_documents(DOCUMENTS){id_rubrique=#ID_RUBRIQUE}{extension==odt|pdf}>
           <article class="item thumb" data-width="320">
             <h2>[(#TITRE|textebrut|sinon{#FICHIER|basename})]</h2>
             <a href="#URL_SITE_SPIP/#SKEL/Viewer.js/#[(#URL_DOCUMENT|url_absolue)]" data-poptrox="iframe,1000x640"><img src="[(#LOGO_DOCUMENT|image_reduire{0,224}|image_recadre{400,260,'center','transparent'}|extraire_attribut{src})]" alt=""></a>
           </article>
 </BOUCLE_documents>
           
-<BOUCLE_vimeo(DOCUMENTS){extension==html}>
+<BOUCLE_vimeo(DOCUMENTS){id_rubrique=#ID_RUBRIQUE}{extension==html}>
           #SET{json, http://vimeo.com/api/v2/video/#URL_DOCUMENT|explode{/}|end|concat{.json}}
           <BOUCLE_vimeo_data(DATA){source json, #GET{json}}>#SET{src,#VALEUR{thumbnail_large}|sinon{#VALEUR{thumbnail_medium}}}</BOUCLE_vimeo_data>
           [(#URL_DOCUMENT|vimeocheck|oui)
@@ -68,7 +68,7 @@
           </article>]
 </BOUCLE_vimeo>    
           
-<BOUCLE_images(DOCUMENTS){mode=image}>
+<BOUCLE_images(DOCUMENTS){id_rubrique=#ID_RUBRIQUE}{mode=image}>
           <article class="item thumb" data-width="[(#FICHIER|image_reduire{0,224}|extraire_attribut{width})]">
             [<h2>(#TITRE|textebrut)</h2>]
             <a href="[(#FICHIER|image_reduire{4096,0}|image_reduire{0,4096}|extraire_attribut{src})]"><img src="[(#FICHIER|image_reduire{0,224}|extraire_attribut{src})]" alt=""></a>

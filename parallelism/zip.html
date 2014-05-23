@@ -1,4 +1,4 @@
-<BOUCLE_rubrique(RUBRIQUES){id_rubrique=#ENV{id_rubrique}}>
+<BOUCLE_rubrique(RUBRIQUES){tout}{id_rubrique=#ENV{id_rubrique}}>
 <?php
 
 $title = "[(#TITRE|textebrut|sanitize)]";
@@ -32,7 +32,7 @@ if (!file_exists($zippath.$zipname)) {
 	  url => "#CHEMIN{misc/licence.txt}",
 	  name => "Licence.txt"
   ),
-	<BOUCLE_images(DOCUMENTS){extension==jpg|gif|png|jpeg}{doublons}{id_rubrique}{","}>
+	<BOUCLE_images(DOCUMENTS){extension==jpg|gif|png|jpeg}{doublons}{id_rubrique=#ID_RUBRIQUE}{","}>
   array(
 	  url => "[(#FICHIER|image_reduire{4096,0}|image_reduire{0,4096}|extraire_attribut{src})]",
 	  name => "[(#TITRE|textebrut|sanitize|sinon{image_#COMPTEUR_BOUCLE})]_HD.#EXTENSION"
@@ -41,7 +41,7 @@ if (!file_exists($zippath.$zipname)) {
 	  name => "[(#TITRE|textebrut|sanitize|sinon{image_#COMPTEUR_BOUCLE})]_SD.#EXTENSION"
   )
 	</BOUCLE_images>
-	<BOUCLE_documents(DOCUMENTS){doublons}{extension==odt|pdf}{id_rubrique}>
+	<BOUCLE_documents(DOCUMENTS){id_rubrique}{doublons}{extension==odt|pdf}{id_rubrique}>
   ,array(
 	  url => "[(#FICHIER)]",
 	  name => "[(#TITRE|textebrut|sanitize|sinon{#FICHIER|basename{.#EXTENSION}})].#EXTENSION"
