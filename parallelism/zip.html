@@ -5,7 +5,7 @@ $title = "[(#TITRE|textebrut|sanitize)]";
 $zippath = "tmp/";
 $zipname = "dossier_presse_".$title.".zip";
 
-[(#AUTORISER{webmestre}|oui)[(#ENV{mode}|=={refresh}|oui)
+[(#AUTORISER{0minirezo}|oui)[(#ENV{mode}|=={refresh}|oui)
 	if (file_exists($zippath.$zipname)) {
 		@unlink($zippath.$zipname);
 	}
@@ -31,9 +31,9 @@ if (!file_exists($zippath.$zipname)) {
   array(
 	  url => "#CHEMIN{misc/licence.txt}",
 	  name => "Licence.txt"
-  ),
-	<BOUCLE_images(DOCUMENTS){extension==jpg|gif|png|jpeg}{doublons}{id_rubrique=#ID_RUBRIQUE}{","}>
-  array(
+  )
+	<BOUCLE_images(DOCUMENTS){extension==jpg|gif|png|jpeg}{doublons}{id_rubrique=#ID_RUBRIQUE}>
+  ,array(
 	  url => "[(#FICHIER|image_reduire{4096,0}|image_reduire{0,4096}|extraire_attribut{src})]",
 	  name => "[(#TITRE|textebrut|sanitize|sinon{image_#COMPTEUR_BOUCLE})]_HD.#EXTENSION"
   ),array(
@@ -41,7 +41,7 @@ if (!file_exists($zippath.$zipname)) {
 	  name => "[(#TITRE|textebrut|sanitize|sinon{image_#COMPTEUR_BOUCLE})]_SD.#EXTENSION"
   )
 	</BOUCLE_images>
-	<BOUCLE_documents(DOCUMENTS){id_rubrique}{doublons}{extension==odt|pdf}{id_rubrique}>
+	<BOUCLE_documents(DOCUMENTS){doublons}{extension==odt|pdf}{id_rubrique=#ID_RUBRIQUE}>
   ,array(
 	  url => "[(#FICHIER)]",
 	  name => "[(#TITRE|textebrut|sanitize|sinon{#FICHIER|basename{.#EXTENSION}})].#EXTENSION"
@@ -76,8 +76,8 @@ if (!file_exists($zippath.$zipname)) {
 ]
 
 [(#ENV{mode}|=={refresh}|oui)
-[(#AUTORISER{webmestre}|oui)echo "L'archive a été recalculée";$check=1;]
-[(#AUTORISER{webmestre}|non)echo "Vous n'avez pas les permissions nécessaires pour recalculer l'archive.";]
+[(#AUTORISER{0minirezo}|oui)echo "L'archive a été recalculée";$check=1;]
+[(#AUTORISER{0minirezo}|non)echo "Vous n'avez pas les permissions nécessaires pour recalculer l'archive.";]
 ]
 
 if ($check==1) {
