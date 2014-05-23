@@ -3,6 +3,8 @@ presskit
 
 [SPIP] Eletctronic Press Kits (ammd.net)
 
+presse.ammd.net
+
 Portage du template Parallelism (http://n33.co/2013/05/21/new-freebie-parallelism) pour spip + quelque fonctionnalités spécifiques :
 
 - image de fond définie par le logo de la rubrique
