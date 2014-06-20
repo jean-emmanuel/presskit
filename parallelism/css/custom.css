@@ -5,7 +5,10 @@ body{background-repeat:no-repeat;background-size:cover;text-transform:none;backg
 #header:before {
   display:none;
 }
-
+a {
+    text-decoration:none;
+}
+.contact {font-size:1.3em;}
 /*TOOLTIPSTER*/
 
 

@@ -54,7 +54,7 @@
 <BOUCLE_documents(DOCUMENTS){id_rubrique=#ID_RUBRIQUE}{extension==odt|pdf}>
           <article class="item thumb" data-width="320">
             <h2>[(#TITRE|textebrut|sinon{#FICHIER|basename})]</h2>
-            <a href="#URL_SITE_SPIP/#SKEL/Viewer.js/#[(#URL_DOCUMENT|url_absolue)]" data-poptrox="iframe,1000x640"><img src="[(#LOGO_DOCUMENT|image_reduire{0,224}|image_recadre{400,260,'center','transparent'}|extraire_attribut{src})]" alt=""></a>
+            <a href="[(#CHEMIN{Viewer.js/index.html})]#[(#URL_DOCUMENT|url_absolue)]" data-poptrox="iframe,1000x640"><img src="[(#LOGO_DOCUMENT|image_reduire{0,224}|image_recadre{400,260,'center','transparent'}|extraire_attribut{src})]" alt=""></a>
           </article>
 </BOUCLE_documents>
           
@@ -89,7 +89,7 @@
           <ul class="contact">
             [(#AUTORISER{webmestre}|oui)<li><a href="[(#URL_PAGE{zip}|parametre_url{id_rubrique,#ID_RUBRIQUE}|parametre_url{mode,refresh})]" target="_blank" class="fa fa-refresh solo"><span>Recalculer le dossier de presse</span></a></li>]
             <li><a href="[(#URL_PAGE{zip}|parametre_url{id_rubrique,#ID_RUBRIQUE})]" class="fa fa-download solo"><span>Télecharger le dossier de presse</span></a></li>
-            <BOUCLE_liens(SITES){par num nom_site, nom_site}>
+            <BOUCLE_liens(SITES){id_rubrique?}{par num nom_site, nom_site}>
             <li><a href="#URL_SITE" class="fa fa-[(#DESCRIPTIF|textebrut|sinon{globe})] solo"><span>[(#NOM_SITE|textebrut)]</span></a></li>
             </BOUCLE_liens>
           </ul>

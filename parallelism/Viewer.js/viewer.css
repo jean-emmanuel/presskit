@@ -645,4 +645,8 @@ html[dir='rtl'] .dropdownToolbarButton {
 #presentation {
   display:none;
 }
+#toolbarMiddleContainer {
+    visibility:visible!important;
+
+}
 
