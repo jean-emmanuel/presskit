@@ -1,0 +1,7 @@
+<BOUCLE_img(DOCUMENTS){id_document=#ID}>
+<div class="image[ (#ALIGN|match{left|right|center})]">
+    <a href="#URL_DOCUMENT" class="popup" data-background="[(#URL_DOCUMENT|image_reduire{800}|extraire_attribut{src})]">
+        <img src="[(#URL_DOCUMENT|image_reduire{100}|extraire_attribut{src})]"/>
+    </a>
+</div>
+</BOUCLE_img>

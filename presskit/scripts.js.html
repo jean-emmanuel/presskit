@@ -1,0 +1,34 @@
+#HTTP_HEADER{Content-Type: text/javascript}
+
+#INCLURE{js/prefixfree.min.js}
+#INCLURE{js/jquery.poptrox.min.js}
+
+
+[(#REM)]
+
+$(function() {
+    $('.side, .article').poptrox({
+        selector:'.popup',
+        usePopupNav:true,
+        popupPadding:0,
+        popupCloserBackgroundColor:'transparent',
+        popupCloserText:'<i class="fa fa-close"></i>',
+        popupCloserTextSize:'2em'
+    });
+    
+    function lazyload() {
+        $('body').find('[data-background]').each(function(){
+            var image = $(this);
+            if (!image.hasClass('loaded')) {
+                var src = $(this).data('background');
+                var loader = new Image();
+                loader.src = src;
+                loader.onload = function() {   
+                    image.css({'background-image':'url('+src+')'}).addClass('loaded');
+                }
+            }
+    });
+    }
+    lazyload();
+});
+

@@ -1,0 +1,68 @@
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique?}>#SET{nomzip,#GET{xxxzzz,'Dossier de presse - '}|concat{#TITRE}}
+
+<div class="container">
+
+    <div class="content">
+    
+        <div class="article">
+        
+            <h1>#TITRE</h1>
+            <h2>#DESCRIPTIF</h2>
+            #TEXTE
+        </div>
+    </div>
+
+    [(#REM)<!-- On remplis un tableau avec les chemins de fichiers-->]
+    #SET{doc,#ARRAY}
+    <BOUCLE_doc(DOCUMENTS){id_rubrique}{extension!=html}>
+    [(#SET{doc,#GET{doc}|push{#FICHIER}})]
+    </BOUCLE_doc>
+    [(#SET{doc,#GET{doc}|push{#CHEMIN{misc/lal.txt}}})]
+    [(#REM) On génére le zip en donnant comme date la dernière modification d'un document]
+    <BOUCLE_zip(DOCUMENTS){tout}{0,1}{!par maj}>
+    [(#SET{urlzip,#GET{doc}|zippeur{#MAJ,PclZip,#GET{nomzip}}})]
+    </BOUCLE_zip>
+    </B_doc>
+    
+    <div class="side">
+        <div class="item">
+            <div class="text">
+                <ul class="links">
+                <BOUCLE_liens(SITES){id_rubrique}>
+                    <li><a href="#URL_SITE" title="#NOM_SITE"><i class="fa fa-fw fa-[(#DESCRIPTIF|textebrut|sinon{globe})]"></i><span class="name">#NOM_SITE</span></a></li>
+                </BOUCLE_liens>
+                </ul>
+            </div>
+        </div>
+        <div class="item doc">
+            <a class="overlay" href="#GET{urlzip}" data-background="[(#GET{src}|sinon{#URL_DOCUMENT}|image_reduire{400}|extraire_attribut{src})]">
+                <i class="fa fa-download fa-fw"></i>
+                <span class="caption"><:telecharger:></span>
+            </a>
+        </div>
+    <BOUCLE_docs(DOCUMENTS){id_rubrique}{extension==html|png|jpg|jpeg|gif}{par num titre}>
+        #SET{src,#URL_DOCUMENT}
+        [(#URL_DOCUMENT|match{vimeo.com}|oui)#SET{json, http://vimeo.com/api/v2/video/#URL_DOCUMENT|explode{/}|end|concat{.json}}]
+        <BOUCLE_vimeo_data(DATA){si #URL_DOCUMENT|match{vimeo.com}|oui}{source json, #GET{json}}>#SET{src,#VALEUR{thumbnail_large}|sinon{#VALEUR{thumbnail_medium}}}</BOUCLE_vimeo_data>
+
+        <div class="item doc" data-background="[(#GET{src}|sinon{#URL_DOCUMENT}|image_reduire{400}|extraire_attribut{src})]">
+            <a class="overlay popup" href="[(#URL_DOCUMENT|image_reduire{1900}|extraire_attribut{src})]">
+                [(#URL_DOCUMENT|match{vimeo.com}|oui)<i class="fa fa-play fa-fw"></i>]
+                <span class="caption">#TITRE</span>
+            </a>
+        </div>
+    </BOUCLE_docs>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+</BOUCLE_rubrique>

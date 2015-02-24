@@ -1,0 +1,85 @@
+[(#REM)
+
+    SPIP BOILERPLATE - v0.1
+    
+    META
+        - balisages de base, metas
+        - styles (less) et scripts (js)
+
+]
+
+
+    #SET{description,#DESCRIPTIF_SITE_SPIP|textebrut}
+    #SET{image,#LOGO_SITE_SPIP|image_reduire{300}|extraire_attribut{src}|url_absolue}
+    #SET{page_url,#URL_SITE_SPIP|url_absolue}
+
+<BOUCLE_author(AUTEURS){id_auteur=1}>
+
+    #SET{author,#NOM|textebrut}
+
+</BOUCLE_author>
+
+<BOUCLE_meta_r(RUBRIQUES){id_rubrique=#ID_RUBRIQUE}>
+
+    #SET{title,#TITRE|ucfirst|textebrut}
+    #SET{description,#DESCRIPTIF|sinon{#TEXTE|couper{200}}|textebrut}
+    #SET{image,#LOGO_RUBRIQUE|image_reduire{300}|extraire_attribut{src}|url_absolue}
+    #SET{page_url,#URL_RUBRIQUE|url_absolue}
+    
+</BOUCLE_meta_r>
+
+<BOUCLE_meta_a(ARTICLES){id_article=#ID_ARTICLE}>
+
+    #SET{title,#TITRE|ucfirst|textebrut}
+    #SET{description,#DESCRIPTIF|sinon{#TEXTE|couper{200}}|textebrut}
+    #SET{image,#LOGO_ARTICLE|image_reduire{300}|extraire_attribut{src}|url_absolue}
+    #SET{page_url,#URL_ARTICLE|url_absolue}
+
+    <BOUCLE_author_a(AUTEURS){id_article}>
+    #SET{author,#NOM|textebrut}
+    </BOUCLE_author_a>
+
+</BOUCLE_meta_a>
+
+<!DOCTYPE html>
+<html lang="#LANG">
+<head>
+    <meta charset="utf-8"/>
+    
+    <!-- IE Rendering -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <!-- Mobile Rendering -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />    
+    
+    <!-- SEO Basics -->
+    <title>[(#GET{title}) | ][(#NOM_SITE_SPIP|textebrut)]</title>
+    [<meta name="author" content="(#GET{author})" />]
+    <meta name="description" content="#GET{description}" />     
+    <link rel="canonical" href="#GET{page_url}" />
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <!-- Open Graph -->
+	<meta property="og:title" content="[(#GET{title}|sinon{#NOM_SITE_SPIP})]" />
+    <meta property="og:description" content="#GET{description}" />
+    <meta property="og:url" content="#GET{page_url}" />
+    <meta property="og:image" content="#GET{image}" />
+    
+    
+    <link rel="stylesheet" href="[(#CHEMIN{css/ubuntu.css})]" />
+    <link rel="stylesheet" href="[(#CHEMIN{css/font-awesome.min.css})]" />
+    <link rel="stylesheet" href="[(#URL_PAGE{styles.css})]" />
+
+    <!-- JS / source : [(#CHEMIN{scripts.js.html})] -->
+    <!--[if lte IE 8]><script src="#CHEMIN{js/html5shiv.js}"></script><![endif]-->
+    <script src="#CHEMIN{js/jquery.min.js}"></script>
+    <script src="#URL_PAGE{scripts.js}"></script>
+    
+    
+
+</head>
+
+<body id="top">
+
+
+
