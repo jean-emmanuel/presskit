@@ -60,7 +60,7 @@
     <link rel="shortcut icon" href="favicon.ico" />
 
     <!-- Open Graph -->
-	<meta property="og:title" content="[(#GET{title}|sinon{#NOM_SITE_SPIP})]" />
+	<meta property="og:title" content="[(#GET{title}) | ][(#NOM_SITE_SPIP|textebrut)]" />
     <meta property="og:description" content="#GET{description}" />
     <meta property="og:url" content="#GET{page_url}" />
     <meta property="og:image" content="#GET{image}" />

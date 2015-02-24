@@ -14,9 +14,13 @@
 
     [(#REM)<!-- On remplis un tableau avec les chemins de fichiers-->]
     #SET{doc,#ARRAY}
-    <BOUCLE_doc(DOCUMENTS){id_rubrique}{extension!=html}>
+    <BOUCLE_doc(DOCUMENTS){id_rubrique}{extension==odt|pdf}>
     [(#SET{doc,#GET{doc}|push{#FICHIER}})]
     </BOUCLE_doc>
+    <BOUCLE_doc2(DOCUMENTS){id_rubrique}{extension==jpg|jpeg|png|gif}>
+    [(#SET{doc,#GET{doc}|push{#FICHIER|image_reduire{4096,0}|image_reduire{0,4096}|extraire_attribut{src}}})]
+    [(#SET{doc,#GET{doc}|push{#FICHIER|image_reduire{640,0}|extraire_attribut{src}}})]
+    </BOUCLE_doc2>
     [(#SET{doc,#GET{doc}|push{#CHEMIN{misc/lal.txt}}})]
     [(#REM) On génére le zip en donnant comme date la dernière modification d'un document]
     <BOUCLE_zip(DOCUMENTS){tout}{0,1}{!par maj}>
