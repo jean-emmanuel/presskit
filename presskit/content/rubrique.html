@@ -34,6 +34,9 @@
                 <BOUCLE_liens(SITES){id_rubrique}>
                     <li><a href="#URL_SITE" title="#NOM_SITE"><i class="fa fa-fw fa-[(#DESCRIPTIF|textebrut|sinon{globe})]"></i><span class="name">#NOM_SITE</span></a></li>
                 </BOUCLE_liens>
+                <BOUCLE_lang(DATA){source tableau, #INCLURE{fond=inc/lang}|langlist|table_valeur{0}}>[(#TOTAL_BOUCLE|>{1}|oui)
+                <li><a title="[(#INCLURE{fond=inc/lang}|langlist|table_valeur{1/#CLE}|ucfirst)]" href="[(#SELF|parametre_url{lang,#VALEUR})]"[ (#ENV{lang}|=={#VALEUR}|oui)class="on"]><i class="fa fa-fw"></i><span class="lang">[(#VALEUR)]</span></a></li>
+                ]</BOUCLE_lang>
                 </ul>
             </div>
         </div>
@@ -65,12 +68,6 @@
 
 </div>
 
-<B_lang>
-<ul class="lang">
-    <BOUCLE_lang(DATA){source tableau, #INCLURE{fond=inc/lang}|langlist|table_valeur{0}}>
-    <li[ (#ENV{lang}|=={#VALEUR}|oui)class="on"]><a title="[(#INCLURE{fond=inc/lang}|langlist|table_valeur{1/#CLE}|ucfirst)]" href="[(#SELF|parametre_url{lang,#VALEUR})]">[(#VALEUR)]</a></li>
-    </BOUCLE_lang>
-</ul>
-</B_lang>
+
 
 </BOUCLE_rubrique>

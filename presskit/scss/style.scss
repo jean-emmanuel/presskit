@@ -121,9 +121,28 @@ body {
             opacity:0.6;
             transition:opacity .25s;
             padding:.2em;
+            position:relative;
             &:hover {
                 opacity:0.9;
             }
+            &.on .lang {
+                text-decoration:underline;
+            }
+        }
+        
+        .lang {
+            position:absolute;
+            display:block!important;
+            top:0;bottom:0;
+            left:0;right:0;
+            font-size:.65em;
+            line-height:2.5em;
+            font-family:$font;
+            color:$color-link;
+            border-radius:1em;
+            text-transform:uppercase;
+            opacity:.8;
+
         }
     }
     .name {
@@ -226,29 +245,3 @@ body {
     }
 }
 
-.lang {
-    position:absolute;
-    top:$bottom-margin;
-    right:0;
-    border-bottom:1px solid $border-color;
-    list-style:none;
-    padding:0;
-    background:$bg-color-light;
-    opacity:0.7;
-    font-size:.8em;
-    text-align:center;
-    li {
-        padding:0;
-        &.on {
-            font-weight:bold;
-        }
-    }
-    a {
-        display:block;
-        padding:.3em;
-        color:$color-light;
-        text-decoration:none;
-        text-transform:uppercase;
-        
-    }
-}
