@@ -13,11 +13,6 @@
     #SET{image,#LOGO_SITE_SPIP|image_reduire{300}|extraire_attribut{src}|url_absolue}
     #SET{page_url,#URL_SITE_SPIP|url_absolue}
 
-<BOUCLE_author(AUTEURS){id_auteur=1}>
-
-    #SET{author,#NOM|textebrut}
-
-</BOUCLE_author>
 
 <BOUCLE_meta_r(RUBRIQUES){id_rubrique=#ID_RUBRIQUE}>
 
@@ -27,19 +22,6 @@
     #SET{page_url,#URL_RUBRIQUE|url_absolue}
     
 </BOUCLE_meta_r>
-
-<BOUCLE_meta_a(ARTICLES){id_article=#ID_ARTICLE}>
-
-    #SET{title,#TITRE|ucfirst|textebrut}
-    #SET{description,#DESCRIPTIF|sinon{#TEXTE|couper{200}}|textebrut}
-    #SET{image,#LOGO_ARTICLE|image_reduire{300}|extraire_attribut{src}|url_absolue}
-    #SET{page_url,#URL_ARTICLE|url_absolue}
-
-    <BOUCLE_author_a(AUTEURS){id_article}>
-    #SET{author,#NOM|textebrut}
-    </BOUCLE_author_a>
-
-</BOUCLE_meta_a>
 
 <!DOCTYPE html>
 <html lang="#LANG">
@@ -54,16 +36,15 @@
     
     <!-- SEO Basics -->
     <title>[(#GET{title}) | ][(#NOM_SITE_SPIP|textebrut)]</title>
-    [<meta name="author" content="(#GET{author})" />]
     <meta name="description" content="#GET{description}" />     
     <link rel="canonical" href="#GET{page_url}" />
     <link rel="shortcut icon" href="favicon.ico" />
 
     <!-- Open Graph -->
 	<meta property="og:title" content="[(#GET{title}) | ][(#NOM_SITE_SPIP|textebrut)]" />
-    <meta property="og:description" content="#GET{description}" />
+    [<meta property="og:description" content="(#GET{description})" />]
     <meta property="og:url" content="#GET{page_url}" />
-    <meta property="og:image" content="#GET{image}" />
+    [<meta property="og:image" content="(#GET{image})" />]
     
     
     <link rel="stylesheet" href="[(#CHEMIN{css/ubuntu.css})]" />

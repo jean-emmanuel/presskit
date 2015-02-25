@@ -21,7 +21,9 @@
     - Articles de la rubrique (prévu pour mettre des players bandcamp)
     - Lien pour télécharger tous les documents (images, odt et pdf) de la rubrique)
     - Documents : images, videos (ajoutées avec des liens vimeo uniquement *...parce que j'en ai marre d'utiliser une clé d'API youtube pour récuperer la vignette*)
-    
+
+*Le logo de la rubrique est utilisé pour illustrer la page si elle est partagée sur un réseau social.*
+
 ## Typographie
 
 *Liste non exhaustive*
