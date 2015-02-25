@@ -5,11 +5,11 @@
 
 ## Installation
 
-- Copier le fichier config/mes_options.php dans le repertoire "config"
-- Copier le dossier presskit dans le repertoire d'installation de spip
-- Installer le plugin "zippeur" **(nécessaire)**
 
-- Le template supporte le multilinguisme avec la balise `<multi>`, l'utilisation du plugin *Multilangue* est recommandée.
+- Installer le plugin "zippeur" **(nécessaire)**
+- Installer le theme presskit comme n'importe quel plugin (repertoire plugins/auto/)
+
+- Le theme supporte le multilinguisme avec la balise `<multi>`, l'utilisation du plugin *Multilangue* est recommandée.
 
 ## Fonctionnement
 

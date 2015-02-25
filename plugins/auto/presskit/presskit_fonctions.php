@@ -1,5 +1,7 @@
 <?php
 
+    if (!defined("_ECRIRE_INC_VERSION")) return;
+    
     // SCSS to CSS compiler 
     require "php/scss.inc.php";
     function scsscss($stylesheet) {

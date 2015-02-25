@@ -1,0 +1,20 @@
+<paquet
+        prefix="presskit"
+        categorie="theme"
+        version="1.0"
+        etat="stable"
+        compatibilite="[3.0.0;3.0.*]"
+        documentation="https://github.com/jean-emmanuel/presskit"
+        demonstration="http://presse.ammd.net/"
+>
+        <nom>Presskit (Thème)</nom>
+
+        <auteur lien="http://ammd.net/">Jean-Emmanuel</auteur>
+
+        <licence lien="http://www.gnu.org/licenses/gpl-3.0.html">GNU/GPL 3</licence>
+        <copyright>2015</copyright>
+
+        <necessite nom="zippeur" compatibilite="[4.1.4;[" />
+        <utilise nom="medias" />
+
+</paquet>
