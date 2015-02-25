@@ -15,20 +15,19 @@
     [(#REM)<!-- On remplis un tableau avec les chemins de fichiers-->]
     #SET{doc,#ARRAY}
     <BOUCLE_doc(DOCUMENTS){id_rubrique}{extension==odt|pdf}>
-    [(#SET{doc,#GET{doc}|push{#FICHIER}})]
+    [(#SET{doc,#GET{doc}|push{#FICHIER}})]#SET{docs,1}
     </BOUCLE_doc>
     <BOUCLE_doc2(DOCUMENTS){id_rubrique}{extension==jpg|jpeg|png|gif}>
-    [(#SET{doc,#GET{doc}|push{#FICHIER|image_reduire{4096,0}|image_reduire{0,4096}|extraire_attribut{src}}})]
-    [(#SET{doc,#GET{doc}|push{#FICHIER|image_reduire{640,0}|extraire_attribut{src}}})]
+    [(#SET{doc,#GET{doc}|push{#FICHIER|image_reduire{4096,0}|image_reduire{0,4096}|extraire_attribut{src}}})
+    ][(#SET{doc,#GET{doc}|push{#FICHIER|image_reduire{640,0}|extraire_attribut{src}}})]#SET{docs,1}
     </BOUCLE_doc2>
     [(#SET{doc,#GET{doc}|push{#CHEMIN{misc/lal.txt}}})]
-    [(#REM) On génére le zip en donnant comme date la dernière modification d'un document]
-    <BOUCLE_zip(DOCUMENTS){tout}{0,1}{!par maj}>
+    <BOUCLE_zip(DOCUMENTS){si #GET{docs}}{tout}{0,1}{!par maj}>[(#REM) On génére le zip en donnant comme date la dernière modification d'un document]
     [(#SET{urlzip,#GET{doc}|zippeur{#MAJ,PclZip,#GET{nomzip}}})]
     </BOUCLE_zip>
-    </B_doc>
     
     <div class="side">
+        <B_liens>
         <div class="item">
             <div class="text">
                 <ul class="links">
@@ -38,35 +37,32 @@
                 </ul>
             </div>
         </div>
-        <div class="item doc">
-            <a class="overlay" href="#GET{urlzip}" data-background="[(#GET{src}|sinon{#URL_DOCUMENT}|image_reduire{400}|extraire_attribut{src})]">
+        </B_liens>
+        <BOUCLE_articles(ARTICLES){id_rubrique}{par num titre}>
+        <div class="item">
+                #TEXTE
+        </div>
+        </BOUCLE_articles>
+        [<div class="item doc">
+            <a class="overlay" href="(#GET{urlzip})" data-background="[(#GET{src}|sinon{#URL_DOCUMENT}|image_reduire{400}|extraire_attribut{src})]">
                 <i class="fa fa-download fa-fw"></i>
                 <span class="caption"><:telecharger:></span>
             </a>
-        </div>
-    <BOUCLE_docs(DOCUMENTS){id_rubrique}{extension==html|png|jpg|jpeg|gif}{par num titre}>
+        </div>]
+        <BOUCLE_docs(DOCUMENTS){id_rubrique}{extension==html|png|jpg|jpeg|gif}{par num titre}>
         #SET{src,#URL_DOCUMENT}
         [(#URL_DOCUMENT|match{vimeo.com}|oui)#SET{json, http://vimeo.com/api/v2/video/#URL_DOCUMENT|explode{/}|end|concat{.json}}]
         <BOUCLE_vimeo_data(DATA){si #URL_DOCUMENT|match{vimeo.com}|oui}{source json, #GET{json}}>#SET{src,#VALEUR{thumbnail_large}|sinon{#VALEUR{thumbnail_medium}}}</BOUCLE_vimeo_data>
 
-        <div class="item doc" data-background="[(#GET{src}|sinon{#URL_DOCUMENT}|image_reduire{400}|extraire_attribut{src})]">
+        <div class="item doc" data-background="[(#GET{src}|image_reduire{400}|extraire_attribut{src})]">
             <a class="overlay popup" href="[(#URL_DOCUMENT|image_reduire{1900}|extraire_attribut{src})]">
                 [(#URL_DOCUMENT|match{vimeo.com}|oui)<i class="fa fa-play fa-fw"></i>]
                 <span class="caption">#TITRE</span>
             </a>
         </div>
-    </BOUCLE_docs>
+        </BOUCLE_docs>
     </div>
 
 </div>
-
-
-
-
-
-
-
-
-
 
 </BOUCLE_rubrique>

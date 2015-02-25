@@ -13,6 +13,7 @@ $bg-color-light:#f9f9f9;
 
 
 $color: #333;
+$color-bold:lighten($color,.1);
 $color-light:lighten($color,.2);
 
 $border-color:darken($bg-color,.1);

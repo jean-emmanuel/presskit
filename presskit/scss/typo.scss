@@ -14,13 +14,17 @@ a {
     color:$color-link;
 }
 
+.clear {
+    display:block;
+    clear:both;
+}
 
 p, ul, ol, form, blockquote, pre, code {
     margin-bottom:$bottom-margin;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: $color-light;
+    color: $color-bold;
     font-weight: bold;
     line-height: 1em;
     margin-bottom:$bottom-margin*.5;
@@ -41,9 +45,13 @@ em {
 }
 b, strong {
     font-weight:bold;
+    color:$color-bold;
 }
 i.fa {
     font-style:normal!important;
+    span {
+        display:none;
+    }
 }
 .align-right {
     text-align:right;
@@ -197,6 +205,9 @@ blockquote {
 	border-left: solid 4px $border-color;
 	font-style: italic;
 	padding-left:2em;
+	padding-top:$bottom-margin;
+	padding-bottom:1px;
+	color:$color-bold;
 }
 
 code {

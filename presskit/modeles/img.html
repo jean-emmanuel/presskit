@@ -1,7 +1,13 @@
-<BOUCLE_img(DOCUMENTS){id_document=#ID}>
+<BOUCLE_img(DOCUMENTS){id_document=#ID}{extension==jpg|jpeg|png|gif|html}>
 <div class="image[ (#ALIGN|match{left|right|center})]">
-    <a href="#URL_DOCUMENT" class="popup" data-background="[(#URL_DOCUMENT|image_reduire{800}|extraire_attribut{src})]">
-        <img src="[(#URL_DOCUMENT|image_reduire{100}|extraire_attribut{src})]"/>
+    #SET{src,#URL_DOCUMENT}
+    [(#URL_DOCUMENT|match{vimeo.com}|oui)#SET{json, http://vimeo.com/api/v2/video/#URL_DOCUMENT|explode{/}|end|concat{.json}}]
+    <BOUCLE_vimeo_data(DATA){si #URL_DOCUMENT|match{vimeo.com}|oui}{source json, #GET{json}}>#SET{src,#VALEUR{thumbnail_large}|sinon{#VALEUR{thumbnail_medium}}}</BOUCLE_vimeo_data>
+
+    <a href="[(#URL_DOCUMENT|image_reduire{1900}|extraire_attribut{src})]" class="popup" data-background="[(#GET{src}|image_reduire{800}|extraire_attribut{src})]">
+        <img src="[(#GET{src}|image_reduire{100}|extraire_attribut{src})]"/>
+        [(#URL_DOCUMENT|match{vimeo.com}|oui)<i class="fa fa-play fa-fw"></i>]
+        [(#ENV{args/titre}|!={'non'}|oui)[<span class="caption">(#TITRE)</span>]]
     </a>
 </div>
 </BOUCLE_img>
