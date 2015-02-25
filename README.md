@@ -13,7 +13,7 @@
 
 - Une rubrique par kit de presse
   - Colonne de gauche
-    - Titre, le sous titre et le texte de la rubrique
+    - Titre, sous-titre et texte de la rubrique
   - Colonne de droite
     - Sites syndiqués
     - Articles de la rubrique (prévu pour mettre des players bandcamp)
