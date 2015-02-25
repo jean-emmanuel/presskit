@@ -209,6 +209,32 @@ body {
     }
 }
 
+.bandcamp {
+    overflow:hidden;
+    position:relative;
+    height:41px;
+    iframe {
+        position:absolute;
+        left:-1px;
+        top:-1px;
+        right:-1px;
+        width:101%;
+        border: 0; 
+        height: 41px;
+        display:block;
+        opacity:.6;
+    }
+    &:after {
+        content:"";
+        position:absolute;
+        height:100%;
+        width:1px;
+        background:$bg-color-light;
+        top:0;
+        left:40px;
+    }
+}
+
 .nav-previous {
     top:25%!important;
     height:50%!important;
