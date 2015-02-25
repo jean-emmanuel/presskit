@@ -45,6 +45,9 @@ Ajouter des liens en cliquant sur "Référencer un site" dans la rubrique voulue
 Les videos hébergées chez vimeo peuvent être ajoutées avec le formulaire "Ajouter une image ou un document" en selectionnant l'option "depuis internet" et en indiquant l'adresse de la vidéo.
 Elle ne sont pas archivées dans le fichier zip du dossier de presse (penser à y faire référence dans le dossier de presse odt/pdf).
 
+- Icone
+ - `<icon|i=X>` icone de la police FontAwesome (X à choisir dans http://fontawesome.io/icons/)
+
 - Document
   - `<docX|>` lien vers le document X avec indication de la taille du fichier
   - `[texte->docX]` lien vers le document X sur le *texte* indiqué
@@ -67,3 +70,13 @@ Elle ne sont pas archivées dans le fichier zip du dossier de presse (penser à 
 
 Template libre sous GPLv3 © AMMD 2015
 Image de fond libre © <a href="https://unsplash.com/taylorleopold">Taylor Leopold</a>
+
+Librairies :
+  - StyleFix 1.0.3 & PrefixFree 1.0.7 @ Lea Verou
+  - jQuery 1.11.1 @ http://jquery.com/
+  - SCSS php @ http://leafo.net/scssphp
+  - poptrox @ n33.co (https://github.com/n33/jquery.poptrox)
+  
+Polices :
+    - Ubuntu
+    - Font Awesome
