@@ -9,6 +9,8 @@
 - Copier le dossier presskit dans le repertoire d'installation de spip
 - Installer le plugin "zippeur" **(nécessaire)**
 
+- Le template supporte le multilinguisme avec la balise `<multi>`, l'utilisation du plugin *Multilangue* est recommandée.
+
 ## Fonctionnement
 
 - Une rubrique par kit de presse
