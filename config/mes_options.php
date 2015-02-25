@@ -1,6 +1,6 @@
 <?php
     if (!defined('_ECRIRE_INC_VERSION')) return;
-	define('_NO_CACHE', -1); 
+	//define('_NO_CACHE', -1); 
 	
     // ajouter le critère {tout} aux boucles rubriques si pas de présence d'un critère {statut}
     $GLOBALS['spip_pipeline']['pre_boucle'] .= "|tout_partout";
