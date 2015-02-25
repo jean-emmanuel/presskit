@@ -34,4 +34,5 @@
     define('_NOTES_FERME_REF','</sup> ');
     define('_NOTES_OUVRE_NOTE','<span>');
     define('_NOTES_FERME_NOTE','</span> ');
+    
 ?>

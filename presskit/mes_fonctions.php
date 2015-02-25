@@ -27,5 +27,11 @@
     $GLOBALS['fin_intertitre'] = '</h3>';
     $GLOBALS['debut_italique'] = '<em>';
     $GLOBALS['fin_italique'] = '</em>';
+    
+    function langlist($menulang) {
+        preg_match_all('/value=\'(.*)\'/',$menulang, $matches);
+        preg_match_all('/>(.*)<\/option>/',$menulang, $matches_long);
+        return [$matches[1],preg_replace('/&#91;.*&#93;\s/','',$matches_long[1])];
+    }
 
 ?>

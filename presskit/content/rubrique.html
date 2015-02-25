@@ -65,4 +65,12 @@
 
 </div>
 
+<B_lang>
+<ul class="lang">
+    <BOUCLE_lang(DATA){source tableau, #INCLURE{fond=inc/lang}|langlist|table_valeur{0}}>
+    <li[ (#ENV{lang}|=={#VALEUR}|oui)class="on"]><a title="[(#INCLURE{fond=inc/lang}|langlist|table_valeur{1/#CLE}|ucfirst)]" href="[(#SELF|parametre_url{lang,#VALEUR})]">[(#VALEUR)]</a></li>
+    </BOUCLE_lang>
+</ul>
+</B_lang>
+
 </BOUCLE_rubrique>
