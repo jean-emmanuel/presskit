@@ -17,6 +17,12 @@ $(function() {
         popupCloserTextSize:'2em'
     });
     
+    $('ul').each(function(){
+        if ($(this).find('> li:first-child > ul:first-child').length) {
+            $(this).css({'list-style':'none'});
+        }
+    })
+    
     function lazyload() {
         $('body').find('[data-background]').each(function(){
             var image = $(this);

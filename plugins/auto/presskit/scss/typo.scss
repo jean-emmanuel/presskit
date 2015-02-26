@@ -27,7 +27,7 @@ h1, h2, h3, h4, h5, h6 {
     color: $color-bold;
     font-weight: bold;
     line-height: 1em;
-    margin-bottom:$bottom-margin*.5;
+    margin-bottom:$bottom-margin*.75;
 
     a {
 	    color: inherit;
@@ -205,9 +205,12 @@ blockquote {
 	border-left: solid 4px $border-color;
 	font-style: italic;
 	padding-left:2em;
-	padding-top:$bottom-margin;
+	padding-top:$bottom-margin/2;
 	padding-bottom:1px;
 	color:$color-bold;
+	:last-child {
+	    margin-bottom:$bottom-margin/2;
+	}
 }
 
 code {

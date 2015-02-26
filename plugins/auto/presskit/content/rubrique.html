@@ -43,6 +43,18 @@
             </div>
         </div>
         </B_liens>
+        <B_lang_nolink>
+        <div class="item">
+            <div class="text">
+                <ul class="links">
+                <BOUCLE_lang_nolink(DATA){source tableau, #INCLURE{fond=inc/lang}|langlist|table_valeur{0}}>[(#TOTAL_BOUCLE|>{1}|oui)
+                <li><a title="[(#INCLURE{fond=inc/lang}|langlist|table_valeur{1/#CLE}|ucfirst)]" href="[(#SELF|parametre_url{lang,#VALEUR})]"[ (#ENV{lang}|=={#VALEUR}|oui)class="on"]><i class="fa fa-fw"></i><span class="lang">[(#VALEUR)]</span></a></li>
+                ]</BOUCLE_lang_nolink>
+                </ul>
+            </div>
+        </div>
+        </B_lang_nolink>
+        <//B_liens>
         <BOUCLE_articles(ARTICLES){id_rubrique}{par num titre}>
         <div class="item">
                 #TEXTE
