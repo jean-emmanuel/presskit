@@ -55,7 +55,7 @@
             </a>
         </div>]
         
-        <BOUCLE_videos(DOCUMENTS){id_rubrique}{extension==html}{par num titre}{vu=non}>
+        <BOUCLE_videos(DOCUMENTS){id_rubrique}{extension==html}{par num titre}>
         [(#LOGO_DOCUMENT|match{html.png}|non)#SET{src,#LOGO_DOCUMENT|extraire_attribut{src}}]
 
         [(#URL_DOCUMENT|match{vimeo.com}|oui)#SET{json, http://vimeo.com/api/v2/video/#URL_DOCUMENT|explode{/}|end|concat{.json}}]
@@ -69,7 +69,7 @@
         </div>
         ]</BOUCLE_videos>
         
-        <BOUCLE_docs(DOCUMENTS){id_rubrique}{extension==png|jpg|jpeg|gif}{par num titre}{vu=non}>
+        <BOUCLE_docs(DOCUMENTS){id_rubrique}{extension==png|jpg|jpeg|gif}{par num titre}>
         <div class="item doc" data-background="[(#URL_DOCUMENT|image_reduire{400}|extraire_attribut{src})]">
             <a class="overlay popup" href="[(#URL_DOCUMENT|image_reduire{1900}|extraire_attribut{src})]">
                 [<span class="caption">(#TITRE)</span>]
