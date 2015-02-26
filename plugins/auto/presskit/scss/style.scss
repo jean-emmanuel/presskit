@@ -11,10 +11,8 @@ body {
     background-size:cover;
     overflow-y:scroll;
     background-attachment:fixed;
+    position:relative;
 }
-
-
-
 
 .container {
     width:800px;
@@ -25,6 +23,7 @@ body {
         clear:both;
     }
 }
+
 
 .content {
     width:66.666%;
@@ -38,7 +37,6 @@ body {
     padding-left:$bottom-margin;
     width:33.333%;
     float:right;
-    //background:blue;
 }
 .article {
     padding:$bottom-margin;
@@ -271,3 +269,35 @@ body {
     }
 }
 
+.spip-admin-block {
+    width:800px;
+    left:50%;
+    margin-left:-400px;
+    position:fixed;
+    bottom:$bottom-margin;
+    
+    .admin-side {
+        float:right;
+        padding-left:$bottom-margin;
+        width:33.333%;
+        
+        
+        div {
+            background:$bg-color-light;
+            border-bottom:2px solid $border-color;
+            width:100%;
+            opacity:0.7;
+            font-size:.8em;
+            overflow: hidden;
+
+            a {
+                display:inline-block;
+                padding:1.1em .8em .6em .8em;
+                text-decoration:none;
+            }
+            #logout {
+                float:right;
+            }
+        }
+    }
+}

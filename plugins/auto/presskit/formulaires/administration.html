@@ -1,0 +1,23 @@
+<div class="spip-admin-block">
+    <div class="admin-side">
+        <div dir="#LANG_DIR">
+	        [(#ENV{objet}|oui)
+		        [<a href="[(#ENV{voir_#ENV{objet}})]" title="[(#ENV{objet}|objet_info{texte_objet}|_T)] #ENV{id_objet}"
+		        id="voir_#ENV{objet}"><i class="fa fa-fw [(#ENV{objet}|=={rubrique}|oui)fa-folder][(#ENV{objet}|=={article}|oui)fa-file][(#ENV{objet}|match{article|rubrique}|non)fa-pencil]"></i>
+			        <sup>(#ENV{id_objet})</sup></a>]
+	        ]<!--extra-->[
+	        <a href="(#ENV{ecrire})" title="<:espace_prive:>"
+		        id="ecrire"><i class="fa fa-fw fa-pencil"></i><sup></sup></a>]
+	        <a href="[(#SELF|parametre_url{var_mode,#ENV{calcul}})]"  title="<:admin_recalculer:>"
+		        id="var_mode"><i class="fa fa-fw fa-refresh"></i><sup>[(#ENV{use_cache})]</sup></a>[
+	        <a href="(#ENV{preview})"
+		        id="preview"><:previsualisation:></a>][
+	        <a href="(#ENV{debug})" title="<:admin_debug:>"
+		        id="debug"><i class="fa fa-gears fa-fw"></i><sup>?</sup></a>][
+	        <a href="(#ENV{analyser})" title="<:analyse_xml:>[ ((#ENV{xhtml_error}))]"
+		        id="analyser"><i class="fa fa-fw fa-bar-chart"></i><sup>XML</sup></a>]
+	        <a href="#URL_LOGOUT" title="<:icone_deconnecter:>"
+		        id="logout"><i class="fa fa-power-off fa-fw"></i><sup>x</sup></a>
+        </div>
+    </div>
+</div>
