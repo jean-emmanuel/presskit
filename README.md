@@ -21,7 +21,7 @@
     - Sites syndiqués
     - Articles de la rubrique (prévu pour mettre des players bandcamp)
     - Lien pour télécharger tous les documents (images, odt et pdf) de la rubrique)
-    - Documents : images, videos (ajoutées avec des liens vimeo uniquement *...parce que j'en ai marre d'utiliser une clé d'API youtube pour récuperer la vignette*)
+    - Documents : images, videos (vimeo | youtube | dailymotion)
 
 *Le logo de la rubrique est utilisé pour illustrer la page si elle est partagée sur un réseau social.*
 
@@ -49,6 +49,7 @@ Ajouter des liens en cliquant sur "Référencer un site" dans la rubrique voulue
 
 Les videos hébergées chez [ vimeo | youtube | dailymotion ] peuvent être ajoutées avec le formulaire "Ajouter une image ou un document" en selectionnant l'option "depuis internet" et en indiquant l'adresse de la vidéo.
 Elle ne sont pas archivées dans le fichier zip du dossier de presse (penser à y faire référence dans le dossier de presse odt/pdf).
+
 Les videos hébergées chez vimeo sont les seules à avoir une vignette automatiquement générée par vimeo, pour les autres, il faut en ajouter une.
 
 - Icone
@@ -77,6 +78,7 @@ Les videos hébergées chez vimeo sont les seules à avoir une vignette automati
 ## Credits
 
 Template libre sous GPLv3 © AMMD 2015
+
 Image de fond libre © <a href="https://unsplash.com/taylorleopold">Taylor Leopold</a>
 
 Librairies :
@@ -86,5 +88,5 @@ Librairies :
   - poptrox @ n33.co (https://github.com/n33/jquery.poptrox)
   
 Polices :
-    - Ubuntu
-    - Font Awesome
+  - Ubuntu
+  - Font Awesome
