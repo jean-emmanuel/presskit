@@ -97,6 +97,9 @@ body {
         text-align:center;
         background:#eee;
         color:#333;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
 
     }
     
@@ -163,6 +166,9 @@ body {
         background:#eee;
         color:#333;
         opacity:.9;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
     }
     
     a {
