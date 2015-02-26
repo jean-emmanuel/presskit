@@ -49,7 +49,7 @@ Ajouter des liens en cliquant sur "Référencer un site" dans la rubrique voulue
 
 Les videos hébergées chez [ vimeo | youtube | dailymotion ] peuvent être ajoutées avec le formulaire "Ajouter une image ou un document" en selectionnant l'option "depuis internet" et en indiquant l'adresse de la vidéo.
 Elle ne sont pas archivées dans le fichier zip du dossier de presse (penser à y faire référence dans le dossier de presse odt/pdf).
-Seule les videos hébergées chez vimeo ont une vignette automatiquement générée par vimeo, pour les autre, il faut en ajouter une.
+Les videos hébergées chez vimeo sont les seules à avoir une vignette automatiquement générée par vimeo, pour les autres, il faut en ajouter une.
 
 - Icone
  - `<icon|i=X>` icone de la police FontAwesome (X à choisir dans http://fontawesome.io/icons/)
@@ -65,6 +65,8 @@ Seule les videos hébergées chez vimeo ont une vignette automatiquement génér
   - `<imgX|center>` image/video X au centre, 35% de la largeur
   - On peut préciser `|titre=non` pour ne pas afficher le titre
   
+*Par défaut, les images et videos ajoutées à la rubrique apparaissent dans la colonne de droite, si on integre l'une d'elles dans le texte avec ce raccourci, elle n'apparait plus dans la colonne pour ne pas faire doublon.*
+
 - Audio (à mettre de préférence dans un article pour un affichage dans la colonne de droite)
  - `<bandcamp|track=XXX>` lecteur pour la piste XXX
  - `<bandcamp|album=XXX>` lecteur pour l'album XXX
