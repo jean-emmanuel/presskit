@@ -1,7 +1,8 @@
 # [SPIP] Eletctronic Press Kits (ammd.net)
 
-*presse.ammd.net [fr]*
-*press.ammd.net [en]*
+*http://presse.ammd.net [fr]*
+
+*http://press.ammd.net [en]*
 
 ## Installation
 
@@ -46,8 +47,9 @@ Ajouter des liens en cliquant sur "Référencer un site" dans la rubrique voulue
 
 ## Insertion de Média
 
-Les videos hébergées chez vimeo peuvent être ajoutées avec le formulaire "Ajouter une image ou un document" en selectionnant l'option "depuis internet" et en indiquant l'adresse de la vidéo.
+Les videos hébergées chez [ vimeo | youtube | dailymotion ] peuvent être ajoutées avec le formulaire "Ajouter une image ou un document" en selectionnant l'option "depuis internet" et en indiquant l'adresse de la vidéo.
 Elle ne sont pas archivées dans le fichier zip du dossier de presse (penser à y faire référence dans le dossier de presse odt/pdf).
+Seule les videos hébergées chez vimeo ont une vignette automatiquement générée par vimeo, pour les autre, il faut en ajouter une.
 
 - Icone
  - `<icon|i=X>` icone de la police FontAwesome (X à choisir dans http://fontawesome.io/icons/)
@@ -56,7 +58,7 @@ Elle ne sont pas archivées dans le fichier zip du dossier de presse (penser à 
   - `<docX|>` lien vers le document X avec indication de la taille du fichier
   - `[texte->docX]` lien vers le document X sur le *texte* indiqué
 
-- Image / Video (vimeo)
+- Image / Video (vimeo | youtube | dailymotion)
   - `<imgX|>` image/video X affichée en pleine largeur
   - `<imgX|left>` image/video X à gauche du texte, 35% de la largeur
   - `<imgX|right>` image/video X à droite du texte, 35% de la largeur

@@ -2,7 +2,7 @@
 [(#LOGO_DOCUMENT|match{medias/prive}|non)#SET{src,#LOGO_DOCUMENT|extraire_attribut{src}}]
 [(#LOGO_DOCUMENT|match{medias/prive}|oui)#SET{src,#CHEMIN{img/bg.jpg}|image_recadre{16,11,'top'}}]
 [(#URL_DOCUMENT|match{vimeo.com}|oui)#SET{json, http://vimeo.com/api/v2/video/#URL_DOCUMENT|explode{/}|end|concat{.json}}]
-<BOUCLE_vimeo_data(DATA){si #URL_DOCUMENT|match{vimeo.com}|oui}{source json, #GET{json}}>#SET{src,#VALEUR{thumbnail_large}|sinon{#VALEUR{thumbnail_medium}}}</BOUCLE_vimeo_data>
+<BOUCLE_vimeo_data(DATA){si #URL_DOCUMENT|match{vimeo.com}|oui}{si #LOGO_DOCUMENT|match{medias/prive}|oui}{source json, #GET{json}}>#SET{src,#VALEUR{thumbnail_large}|sinon{#VALEUR{thumbnail_medium}}}</BOUCLE_vimeo_data>
 [(#URL_DOCUMENT|match{vimeo.com|youtube.com|youtu.be|dailymotion.com}|oui)
 <div class="image[ (#ALIGN|match{left|right|center})]">
     <a class="popup" href="[(#URL_DOCUMENT|replace{'www.youtube.com/watch\?v=','youtu.be/'})]" data-background="[(#GET{src}|image_reduire{800}|extraire_attribut{src})]">
